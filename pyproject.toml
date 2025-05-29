@@ -1,0 +1,45 @@
+[build-system]
+requires = ["hatchling >= 1.26"]
+build-backend = "hatchling.build"
+
+[project]
+name = "simple-auto-subtitle"
+version = "0.1.0"
+authors = [
+  { name="yunfanye", email="yunfan.ye68@gmail.com" },
+]
+description = "Automatic subtitle generation using Gemini AI"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Education",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Operating System :: OS Independent",
+    "Topic :: Multimedia :: Video",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Text Processing :: Linguistic",
+]
+license = "MIT"
+license-files = ["LICEN[CS]E*"]
+dependencies = [
+    "google-genai>=0.7.0",
+    "pydantic>=2.0.0",
+    "python-dotenv>=1.0.0"
+]
+keywords = ["subtitle", "video", "ai", "transcription", "gemini", "srt", "captions"]
+
+[project.urls]
+Homepage = "https://github.com/yunfanye/auto_subtitle"
+Issues = "https://github.com/yunfanye/auto_subtitle/issues"
+Repository = "https://github.com/yunfanye/auto_subtitle"
+
+[project.scripts]
+simple-auto-subtitle = "simple_auto_subtitle.main:main"
+auto-subtitle = "simple_auto_subtitle.main:main"

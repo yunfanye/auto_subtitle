@@ -15,25 +15,37 @@ Automatic subtitle generation tool that extracts audio from video files and gene
 - **Structured Output**: Uses Pydantic models for reliable JSON parsing
 - **Environment Variables**: Supports `.env` files for API key management
 
+## Installation
+
+### From PyPI (Recommended)
+```bash
+pip install simple-auto-subtitle
+```
+
+### From Source
+```bash
+git clone https://github.com/yunfanye/auto_subtitle.git
+cd auto_subtitle
+pip install -e .
+```
+
+### Development Installation
+```bash
+git clone https://github.com/yunfanye/auto_subtitle.git
+cd auto_subtitle
+pip install -r requirements.txt
+pip install -e .
+```
+
 ## Setup
 
-1. **Install Dependencies**:
-   ```bash
-   pip install -r requirements.txt
-   ```
-   
-   Or install manually:
-   ```bash
-   pip install google-genai pydantic python-dotenv
-   ```
-
-2. **Install ffmpeg** (required for audio/video processing):
+1. **Install ffmpeg** (required for audio/video processing):
    - macOS: `brew install ffmpeg`
    - Ubuntu: `sudo apt install ffmpeg`
    - Windows: Download from [ffmpeg.org](https://ffmpeg.org/download.html)
 
-3. **Set up Gemini API Key**:
-   Create a `.env` file in the project directory:
+2. **Set up Gemini API Key**:
+   Create a `.env` file in your working directory:
    ```
    GEMINI_API_KEY=your_api_key_here
    ```
@@ -43,18 +55,21 @@ Automatic subtitle generation tool that extracts audio from video files and gene
 ### Basic Usage
 ```bash
 # Process default video (test.mp4) with Flash model
-python auto_subtitle.py
+simple-auto-subtitle
 
-# Process specific video file
-python auto_subtitle.py my_video.mp4
+# Process specific video file  
+simple-auto-subtitle my_video.mp4
 
 # Use Pro model for better accuracy
-python auto_subtitle.py my_video.mp4 --model pro
+simple-auto-subtitle my_video.mp4 --model pro
+
+# Alternative command
+auto-subtitle my_video.mp4
 ```
 
 ### Command Line Options
 ```bash
-python auto_subtitle.py [video_file] [options]
+simple-auto-subtitle [video_file] [options]
 
 Arguments:
   video_file              Video file to process (default: test.mp4)
