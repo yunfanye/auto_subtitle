@@ -1,4 +1,4 @@
-# auto_subtitle
+# Simple Auto Subtitle (Coauthor: Claude)
 
 Automatic subtitle generation tool that extracts audio from video files and generates subtitles using Google's Gemini AI models.
 

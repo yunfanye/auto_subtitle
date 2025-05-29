@@ -8,7 +8,6 @@ Extracts audio from video files and generates SRT subtitles using Gemini Flash 2
 import os
 import sys
 import argparse
-import tempfile
 from typing import List, Tuple, Optional
 import subprocess
 import json
@@ -17,11 +16,8 @@ from google import genai
 from google.genai import types
 from pydantic import BaseModel
 
-try:
-    from dotenv import load_dotenv
-    load_dotenv()
-except ImportError:
-    pass
+from dotenv import load_dotenv
+load_dotenv()
 
 
 class TranscriptSegment(BaseModel):
@@ -401,10 +397,6 @@ def main():
     print(f"Output embedded video: {embedded_video_path}")
     print(f"Output burnt video: {burnt_video_path}")
     
-    # Create temporary file for audio
-    with tempfile.NamedTemporaryFile(suffix='.wav', delete=False) as temp_audio:
-        temp_audio_path = temp_audio.name
-    
     try:
         # Step 1: Extract audio
         print("Extracting audio from video...")
@@ -457,11 +449,6 @@ def main():
             sys.exit(1)
         
         print(f"Successfully saved extracted audio: {audio_output_path}")
-        
-    finally:
-        # Clean up temporary file (no longer needed since we save audio directly)
-        if os.path.exists(temp_audio_path):
-            os.unlink(temp_audio_path)
 
 
 if __name__ == '__main__':
