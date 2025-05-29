@@ -19,6 +19,11 @@ Automatic subtitle generation tool that extracts audio from video files and gene
 
 1. **Install Dependencies**:
    ```bash
+   pip install -r requirements.txt
+   ```
+   
+   Or install manually:
+   ```bash
    pip install google-genai pydantic python-dotenv
    ```
 
